@@ -1,0 +1,3 @@
+{
+    "java.debug.settings.vmArgs": "-Djava.library.path=/workspace/native"
+}

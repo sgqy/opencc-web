@@ -1,0 +1,28 @@
+services:
+  opencc:
+    build:
+      context: .
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+    - ..:/workspace
+#    - ./temp:/data
+    environment:
+      DB_HOST: mariadb
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+    depends_on:
+    - mariadb
+
+  mariadb:
+    image: mariadb
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: yes
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASS}
+    volumes:
+    - maria-data:/var/lib/mysql
+
+volumes:
+  maria-data:
