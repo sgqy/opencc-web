@@ -1,3 +1,4 @@
 {
-    "java.debug.settings.vmArgs": "-Djava.library.path=/workspace/native"
+    "java.debug.settings.vmArgs": "-Djava.library.path=/workspace/target/main/cpp",
+    "maven.view": "flat"
 }

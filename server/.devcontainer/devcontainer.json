@@ -9,9 +9,12 @@
 	"shutdownAction": "stopCompose",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {
-	// 	"ghcr.io/devcontainers/features/node:1": {}
-	// },
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "11",
+			"installMaven": true
+		}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [6000],
@@ -28,7 +31,9 @@
 		"vscode": {
 			"extensions": [
 				"ms-vscode.cpptools-extension-pack",
-				"ms-vscode.makefile-tools"
+				"ms-vscode.makefile-tools",
+				"redhat.fabric8-analytics",
+				"DotJoshJohnson.xml"
 			]
 		}
 	}

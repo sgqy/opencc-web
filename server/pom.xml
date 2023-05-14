@@ -1,0 +1,7 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cc.sgqy</groupId>
+    <artifactId>opencc-web</artifactId>
+    <version>1.0.0</version>
+</project>

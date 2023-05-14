@@ -8,9 +8,11 @@ LD_LIBS = opencc
 
 STRIP = strip
 
-SOURCES = $(wildcard *.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
-TARGET = libopencc4j.so
+SRC_DIR = src/main/cpp
+DST_DIR = target/main/cpp
+SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS = $(addprefix $(DST_DIR)/, $(notdir $(SOURCES:.cpp=.o)))
+TARGET = $(DST_DIR)/libopencc4j.so
 
 all: $(TARGET)
 
@@ -18,10 +20,11 @@ $(TARGET): $(OBJECTS)
 	$(LD) $(LD_ARGS) -o $@ $^ $(addprefix -l, $(LD_LIBS))
 	$(STRIP) $@
 
-%.o: %.cpp
+$(DST_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(addprefix -I, $(INCLUDES)) $(CC_ARGS) -c -o $@ $<
 
 .PHONY: clean
 
 clean:
-	rm -rf *.o $(TARGET)
+	rm -rf $(DST_DIR)
+	mkdir -p $(DST_DIR)

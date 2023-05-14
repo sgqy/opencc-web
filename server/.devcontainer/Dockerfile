@@ -1,4 +1,4 @@
-FROM gcc:10-bullseye as build
+FROM gcc:10-bullseye AS build
 
 RUN apt update
 RUN apt install -y cmake doxygen
@@ -11,7 +11,7 @@ RUN rm -rf /usr/share/opencc/doc
 
 ###
 
-FROM mcr.microsoft.com/devcontainers/java:11-bullseye
+FROM mcr.microsoft.com/devcontainers/base:bullseye
 
 RUN \
   --mount=type=bind,from=build,source=/,target=/mnt \
