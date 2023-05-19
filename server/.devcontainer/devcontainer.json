@@ -33,7 +33,8 @@
 				"ms-vscode.cpptools-extension-pack",
 				"ms-vscode.makefile-tools",
 				"redhat.fabric8-analytics",
-				"DotJoshJohnson.xml"
+				"DotJoshJohnson.xml",
+				"vscjava.vscode-java-pack"
 			]
 		}
 	}
