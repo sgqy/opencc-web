@@ -1,4 +1,7 @@
-*.o
-*.so
-*.class
-*.log
+**/*.o
+**/*.so
+**/*.class
+**/*.log
+
+target/
+Dockerfile.temp

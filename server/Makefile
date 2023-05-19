@@ -14,6 +14,8 @@ SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS = $(addprefix $(DST_DIR)/, $(notdir $(SOURCES:.cpp=.o)))
 TARGET = $(DST_DIR)/libopencc4j.so
 
+.PHONY: clean all
+
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
@@ -22,8 +24,6 @@ $(TARGET): $(OBJECTS)
 
 $(DST_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(addprefix -I, $(INCLUDES)) $(CC_ARGS) -c -o $@ $<
-
-.PHONY: clean
 
 clean:
 	rm -rf $(DST_DIR)

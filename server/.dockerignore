@@ -1,0 +1,10 @@
+**/*.o
+**/*.so
+**/*.class
+**/*.log
+
+.devcontainer
+.vscode
+Dockerfile
+.dockerignore
+target
