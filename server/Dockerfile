@@ -1,6 +1,6 @@
 # build components
 
-FROM openjdk:11-jdk-slim AS build
+FROM eclipse-temurin:11-jdk AS build
 RUN apt update
 RUN apt install -y git build-essential cmake doxygen python3
 
@@ -18,7 +18,7 @@ RUN make -j all
 
 # release image
 
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:11-jre
 RUN \
   --mount=type=bind,from=build,source=/,target=/mnt \
   cp -r /mnt/usr/lib/libopencc.* /usr/lib/ && \
